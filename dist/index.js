@@ -298,15 +298,12 @@ var MobxPromiseImpl = function () {
     }, {
         key: "result",
         get: function get() {
-            // checking status may trigger invoke
-            /*@ts-ignore*/
+            // we need to
             if (this.isComplete === false) {
-                if (localStorage.debugMP) {
-                    debugger;
-                }
                 /*@ts-ignore*/
-                console.log(this.label + " accessed prior to completion", this);
+                if (this.onPrematureRead) this.onPrematureRead.call(this);
             }
+            // checking status may trigger invoke
             if (this.isError || this.internalResult == null) return this.defaultResult;
             return this.internalResult;
         }

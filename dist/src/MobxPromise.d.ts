@@ -25,8 +25,6 @@ export declare type MobxPromiseUnionType<R> = ({
     error: Error | undefined;
 }) & {
     peekStatus: MobxPromiseStatus;
-} & {
-    label: string;
 };
 export declare type MobxPromiseUnionTypeWithDefault<R> = ({
     status: 'pending';
@@ -51,8 +49,6 @@ export declare type MobxPromiseUnionTypeWithDefault<R> = ({
     error: Error | undefined;
 }) & {
     peekStatus: MobxPromiseStatus;
-} & {
-    label: string;
 };
 export declare type MobxPromiseInputUnion<R> = PromiseLike<R> | (() => PromiseLike<R>) | MobxPromiseInputParams<R>;
 export declare type MobxPromiseInputParams<R> = {
