@@ -189,7 +189,7 @@ export class MobxPromiseImpl<R> {
             this.internalStatus = 'complete';
 
             if (this.onResult)
-                this.onResult(this.result); // may use defaultResult
+                this.onResult(result || this.defaultResult); // may use defaultResult
         }
     }
 
