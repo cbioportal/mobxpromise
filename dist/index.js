@@ -195,7 +195,7 @@ var MobxPromiseImpl = function () {
                 this.internalResult = result;
                 this.internalError = undefined;
                 this.internalStatus = 'complete';
-                if (this.onResult) this.onResult(this.result); // may use defaultResult
+                if (this.onResult) this.onResult(result || this.defaultResult); // may use defaultResult
             }
         }
     }, {
